@@ -232,7 +232,10 @@ SQL.Row.prototype.load = function() { /* put data to expanded form */
 
 SQL.Row.prototype.redraw = function() {
 	var color = this.getColor();
-	this.dom.container.style.backgroundColor = color + ' !important';
+	this.dom.container.style.backgroundColor = color;
+	if (color.indexOf() !== -1) {
+		this.dom.container.setAttribute('style', 'background-color: ' + color + ' !important');
+	}
 	this.dom.container.style.borderColor = color;
 	OZ.DOM.removeClass(this.dom.title, "primary");
 	OZ.DOM.removeClass(this.dom.title, "key");
